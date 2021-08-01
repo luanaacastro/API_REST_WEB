@@ -8,17 +8,17 @@ Data :
 	01 / 08 / 2021
 */
     class Database {
-        private $host = "localhost";
-        private $database_name = "disciplina";
-        private $username = "root";
-        private $password = "";
+        private $host = "ec2-35-172-16-31.compute-1.amazonaws.com";
+        private $database_name = "d9uddncl6cld07";
+        private $username = "jitisriskuoqhp";
+        private $password = "f4689651833affe391abe614529d01817bb0f27bf371a0296df19749944dee12";
 
         public $conn;
 
         public function getConnection(){
             $this->conn = null;
             try{
-                $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->database_name, $this->username, $this->password);
+                $this->conn = new PDO("pgsql:host=" . $this->host . ";dbname=" . $this->database_name, $this->username, $this->password);
                 $this->conn->exec("set names utf8");
             }catch(PDOException $exception){
                 echo "Database could not be connected: " . $exception->getMessage();
